@@ -1,6 +1,1 @@
-editor/node_modules
-editor/out
-editor/pkg
-
-runtime/target
-runtime/Cargo.lock
+/target
