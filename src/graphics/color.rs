@@ -16,7 +16,7 @@ pub struct Color {
 
 impl Color {
     /// Creates a Color from all four components
-    pub fn from_rgba(red: u8, green: u8, blue: u8, alpha: u8) -> Color {
+    pub const fn from_rgba(red: u8, green: u8, blue: u8, alpha: u8) -> Color {
         Color {
             red,
             green,
@@ -26,8 +26,39 @@ impl Color {
     }
 
     /// Creates a Color from only three components, alpha is 255
-    pub fn from_rgb(red: u8, green: u8, blue: u8) -> Color {
+    pub const fn from_rgb(red: u8, green: u8, blue: u8) -> Color {
         Color::from_rgba(red, green, blue, 255)
+    }
+}
+
+// ====================================
+// Constants
+// ====================================
+
+impl Color {
+    const BLACK: Color = Color::from_rgb(0, 0, 0);
+    const WHITE: Color = Color::from_rgb(255, 255, 255);
+    const CLEAR: Color = Color::from_rgba(0, 0, 0, 0);
+
+    const RED: Color = Color::from_rgb(255, 0, 0);
+    const GREEN: Color = Color::from_rgb(0, 255, 0);
+    const BLUE: Color = Color::from_rgb(0, 0, 255);
+
+    const YELLOW: Color = Color::from_rgb(255, 255, 0);
+    const MAGENTA: Color = Color::from_rgb(255, 0, 255);
+    const CYAN: Color = Color::from_rgb(0, 255, 255);
+}
+
+// ====================================
+// Other Implementations
+// ====================================
+
+impl std::fmt::Display for Color {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!(
+            "({}, {}, {}, {})",
+            self.red, self.green, self.blue, self.alpha
+        ))
     }
 }
 
