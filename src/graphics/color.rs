@@ -2,12 +2,12 @@
 
 /// Structure that represents an RGBA color.
 #[repr(C)]
-#[derive(Clone, Copy, PartialEq, Eq)]
+#[derive(Clone, Copy, PartialEq, Eq, Default)]
 pub struct Color {
-    red: u8,
-    green: u8,
-    blue: u8,
-    alpha: u8,
+    pub red: u8,
+    pub green: u8,
+    pub blue: u8,
+    pub alpha: u8,
 }
 
 // ====================================
@@ -36,17 +36,17 @@ impl Color {
 // ====================================
 
 impl Color {
-    const BLACK: Color = Color::from_rgb(0, 0, 0);
-    const WHITE: Color = Color::from_rgb(255, 255, 255);
-    const CLEAR: Color = Color::from_rgba(0, 0, 0, 0);
+    pub const BLACK: Color = Color::from_rgb(0, 0, 0);
+    pub const WHITE: Color = Color::from_rgb(255, 255, 255);
+    pub const CLEAR: Color = Color::from_rgba(0, 0, 0, 0);
 
-    const RED: Color = Color::from_rgb(255, 0, 0);
-    const GREEN: Color = Color::from_rgb(0, 255, 0);
-    const BLUE: Color = Color::from_rgb(0, 0, 255);
+    pub const RED: Color = Color::from_rgb(255, 0, 0);
+    pub const GREEN: Color = Color::from_rgb(0, 255, 0);
+    pub const BLUE: Color = Color::from_rgb(0, 0, 255);
 
-    const YELLOW: Color = Color::from_rgb(255, 255, 0);
-    const MAGENTA: Color = Color::from_rgb(255, 0, 255);
-    const CYAN: Color = Color::from_rgb(0, 255, 255);
+    pub const YELLOW: Color = Color::from_rgb(255, 255, 0);
+    pub const MAGENTA: Color = Color::from_rgb(255, 0, 255);
+    pub const CYAN: Color = Color::from_rgb(0, 255, 255);
 }
 
 // ====================================
