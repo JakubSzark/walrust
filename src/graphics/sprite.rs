@@ -32,6 +32,23 @@ impl Sprite {
         }
     }
 
+    pub fn refresh(&self) {
+        unsafe {
+            gl::BindTexture(gl::TEXTURE_2D, self.id);
+            gl::TexSubImage2D(
+                gl::TEXTURE_2D,
+                0,
+                0,
+                0,
+                self.texture.width() as i32,
+                self.texture.height() as i32,
+                gl::RGBA,
+                gl::UNSIGNED_BYTE,
+                self.texture.as_ptr() as *const _,
+            );
+        }
+    }
+
     pub fn bind(&self) {
         unsafe {
             gl::BindTexture(gl::TEXTURE_2D, self.id);
