@@ -1,5 +1,6 @@
 mod context;
 mod graphics;
+mod math;
 
 use context::keyboard::Key;
 use context::window::{EventReciever, Window, WindowArgs, WindowError};
